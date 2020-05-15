@@ -6,7 +6,12 @@
     "author": "jeo19 <terrakkk@outlook.com>",
     "license": "MIT",
     "scripts": {
-        "start": "node index.js",
-        "prestart": "tsc"
+        "start": "tsc-watch --onSuccess \"node dist/index.js\""
+    },
+    "devDependencies": {
+        "tsc-watch": "^4.2.5"
+    },
+    "dependencies": {
+        "typescript": "^3.9.2"
     }
 }
