@@ -21,4 +21,14 @@ const getBlockchain = () => blockchain;
 //get latest blockchain block
 const getLastestBlock = () => blockchain[blockchain.length - 1];
 const getNewTimeStamp = () => Math.round(new Date().getTime() / 1000);
+const createNewBlock = (data) => {
+    const previousBlock = getLastestBlock();
+    const newIndex = previousBlock.index + 1;
+    const newTimeStamp = getNewTimeStamp();
+    const newHash = Block.calculateBlockHash(newIndex, previousBlock.hash, data, newTimeStamp);
+    const newBlock = new Block(newIndex, newHash, previousBlock.hash, data, newTimeStamp);
+    return newBlock;
+};
+blockchain.push(createNewBlock('hello'));
+console.log(blockchain);
 //# sourceMappingURL=index.js.map
